@@ -1,0 +1,64 @@
+/* Define Color Palette */
+:root {
+    --primary-color: #FF204E; /* Main theme color (blue) */
+    --secondary-color: #f8f9fa; /* Light background */
+    --dark-color: #343a40; /* Dark background */
+    --light-color: #ffffff; /* White */
+    --border-color: #ddd; /* Border color */
+    --text-color: #212529; /* Default text color */
+    --button-hover: #FFF455; /* Button hover effect */
+}
+
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    color: var(--text-color);
+}
+
+/* Hero Section */
+.hero-section {
+    background: url('../image/pawnshop.jpg') no-repeat center center/cover;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--light-color);
+}
+
+/* Buttons */
+.btn-custom {
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--light-color);
+    background: var(--primary-color);
+    border: none;
+    border-radius: 5px;
+}
+
+.btn-custom:hover {
+    background: var(--button-hover);
+}
+
+/* Service Boxes */
+.service-box {
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    border-radius: 8px;
+    background: var(--secondary-color);
+    margin: 10px;
+}
+
+.service-box i {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+/* Contact Section */
+.contact-section {
+    background: var(--dark-color);
+    color: var(--light-color);
+}
