@@ -14,39 +14,107 @@ body {
     font-family: Arial, sans-serif;
     color: var(--text-color);
 }
-
 /* Floating Top Banner */
 .floating-banner {
     background: var(--primary-color);
     color: var(--light-color);
     text-align: center;
-    padding: 0px 0;
-    font-size: 24px;
+    padding-top: 10px;
+    font-size: 18px;
     font-weight: bold;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1050;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    animation: fadeInDown 0.5s ease-in-out;
 }
 
-/* Sticky Navbar */
+/* Sticky Navbar with Dynamic Positioning */
 .sticky-navbar {
-    position: sticky;
-    top: 40px; /* Below the floating banner */
+    position: fixed;
+    top: var(--banner-height, 50px); /* Dynamic positioning based on banner height */
     z-index: 1040;
     width: 100%;
+    background: rgba(255, 255, 255, 0.5);
     transition: all 0.3s ease-in-out;
+    padding: 10px 0;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-link {
+    color: var(--text-color);
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0 15px;
+    transition: color 0.3s ease-in-out;
 }
 
 /* Navbar Logo */
 .logo {
-    height: 50px;
+    height: 40px;
     width: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+/* Navbar Animation */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Adjust Banner Height on Smaller Screens */
+@media (max-width: 992px) {
+    .floating-banner {
+        padding: 15px 0; /* Increase padding for smaller screens */
+    }
+}
+
+/* Adjust Navbar Position Dynamically */
+:root {
+    --banner-height: 50px; /* Default height */
+}
+
+
+
+/* Navbar Animation */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Particles Background */
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+    top: 0;
 }
 
 /* Hero Section */
 .hero-section {
-    background: url('../image/3.png') no-repeat center center/cover;
+    background: url('../image/hero.png') no-repeat center center/cover;
     height: 70vh;
     display: flex;
     align-items: center;
@@ -155,6 +223,20 @@ h2.gradient-text {
     margin-bottom: 10px;
 }
 
+/* Service Box Hover Effect */
+.service-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.service-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
 /* Gallery Section */
 .gallery-section {
     background: var(--secondary-color);
@@ -252,4 +334,85 @@ h2.gradient-text {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Floating Buttons */
+.floating-buttons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 9999;
+}
+
+.fab {
+    width: 50px;
+    height: 50px;
+    background: var(--primary-color);
+    color: white;
+    font-size: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+}
+
+/* Scroll to Top Button */
+#scrollToTop {
+    display: none;
+    position: fixed;
+    bottom: 140px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: var(--primary-color);
+    color: white;
+    font-size: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    cursor: pointer;
+    opacity: 0;
+}
+
+#scrollToTop:hover {
+    transform: scale(1.1);
+}
+
+#scrollToTop.show {
+    display: flex;
+    opacity: 1;
+}
+
+/* Ensuring the icon is centered */
+.fab i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Hover Effects */
+.fab:hover {
+    transform: scale(1.1);
+}
+
+/* Different colors for different buttons */
+.fab-fb {
+    background: #1877f2;
+}
+
+.fab-call {
+    background: #28a745;
 }
