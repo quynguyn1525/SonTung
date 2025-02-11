@@ -24,17 +24,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-// // Particles Animation
-// particlesJS("particles-js", {
-//     "particles": {
-//         "number": {
-//             "value": 50
-//         },
-//         "size": {
-//             "value": 3
-//         }
-//     }
-// });
 
 // Change navbar background on scroll
 window.addEventListener("scroll", function() {
@@ -48,35 +37,31 @@ window.addEventListener("scroll", function() {
 
 document.addEventListener("DOMContentLoaded", function () {
     const galleryContainer = document.getElementById("gallery-container");
+    const totalImages = 3; // Change this number based on your total images
 
-    // Fetch image list from API
-    fetch('/api/gallery')
-        .then(response => response.json())
-        .then(images => {
-            images.forEach(image => {
-                // Create a div element for each gallery item
-                const colDiv = document.createElement("div");
-                colDiv.classList.add("col-md-4");
+    for (let i = 1; i <= totalImages; i++) {
+        // Create a div element for each gallery item
+        const colDiv = document.createElement("div");
+        colDiv.classList.add("col-md-4");
 
-                // Create a div for the image
-                const galleryItem = document.createElement("div");
-                galleryItem.classList.add("gallery-item");
+        // Create a div for the image
+        const galleryItem = document.createElement("div");
+        galleryItem.classList.add("gallery-item");
 
-                // Create an image element
-                const img = document.createElement("img");
-                img.src = `/image/gallery/${image}`; // Use file name dynamically
-                img.alt = `Hình ảnh ${image}`;
-                img.onclick = function () { openLightbox(`/image/gallery/${image}`); }; // Open lightbox when clicked
+        // Create an image element
+        const img = document.createElement("img");
+        img.src = `/image/gallery/${i}.png`; // Adjust format if needed (jpg, png, webp)
+        img.alt = `Hình ảnh ${i}`;
+        img.setAttribute("loading", "lazy"); // Enable lazy loading
+        img.onclick = function () { openLightbox(`/image/gallery/${i}.png`); }; // Open lightbox when clicked
 
-                // Append elements
-                galleryItem.appendChild(img);
-                colDiv.appendChild(galleryItem);
-                galleryContainer.appendChild(colDiv);
-            });
-        })
-        .catch(error => console.error("Error loading images:", error));
+        
+        // Append elements
+        galleryItem.appendChild(img);
+        colDiv.appendChild(galleryItem);
+        galleryContainer.appendChild(colDiv);
+    }
 });
-
 
 document.addEventListener("DOMContentLoaded", function () {
     const scrollToTopBtn = document.createElement("div");
