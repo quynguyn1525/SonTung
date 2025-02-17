@@ -37,7 +37,7 @@ window.addEventListener("scroll", function() {
 
 document.addEventListener("DOMContentLoaded", function () {
     const galleryContainer = document.getElementById("gallery-container");
-    const totalImages = 3; // Change this number based on your total images
+    const totalImages = 4; // Change this number based on your total images
 
     for (let i = 1; i <= totalImages; i++) {
         // Create a div element for each gallery item
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
     const scrollToTopBtn = document.createElement("div");
     scrollToTopBtn.id = "scrollToTop";
-    scrollToTopBtn.innerHTML = "&#8679;"; // Up arrow symbol
+    scrollToTopBtn.innerHTML = "&#8593;";
     document.body.appendChild(scrollToTopBtn);
 
     // Show/hide button on scroll
